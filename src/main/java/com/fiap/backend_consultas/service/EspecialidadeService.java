@@ -1,6 +1,7 @@
 package com.fiap.backend_consultas.service;
 import com.fiap.backend_consultas.model.Especialidade;
 import com.fiap.backend_consultas.repository.EspecialidadeRepository;
+import org.springframework.core.NestedRuntimeException;
 import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
@@ -14,5 +15,9 @@ public class EspecialidadeService {
     }
     public List<Especialidade> listar() {
         return repository.findAll();
+    }
+    public  Especialidade buscarPorId(Long id){
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Especialidade não encontrada"));
     }
 }
