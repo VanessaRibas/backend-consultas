@@ -24,7 +24,7 @@ public class PacienteController {
     public Paciente buscarPorId(@PathVariable Long id){
         return service.buscarPorId(id);
     }
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public Paciente atualizar(@PathVariable Long id, @RequestBody Paciente paciente)
     {
         return service.atualizar(id, paciente);
